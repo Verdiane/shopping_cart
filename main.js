@@ -72,8 +72,12 @@ const app = Vue.createApp({
         addToCart(product){
             for (let i = 0; i < this.products.length; i++){
                 if (this.products[i].id === product.id){
+                  if(this.products[i].quantity >= this.products[i].min_qqty){
+                    alert('this product is already in the cart');
+                  }else{
                    this.products[i].quantity = this.products[i].min_qqty;
                    return this.products[i].quantity;
+                  }
                 }
                
             }
